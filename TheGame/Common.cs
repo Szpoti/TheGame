@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TheGame
+﻿namespace TheGame
 {
     public static class Common
     {
         public static string GetWorkingDirectory() => Environment.CurrentDirectory;
+
+        public static string GetDataDir() => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TheGame");
     }
 }

@@ -1,5 +1,4 @@
-﻿using TheGame.Classes;
-using TheGame.Items;
+﻿using TheGame.Items;
 
 namespace TheGame
 {
@@ -31,7 +30,7 @@ namespace TheGame
         public Item? Holding { get; private set; }
         public List<Item> Inventory { get; private set; } = new List<Item>();
 
-        internal static Player CreateRandom(string name)
+        internal static Player CreateRandom(string name, int level = 0)
         {
             var player = new Player(name)
             {
@@ -41,7 +40,8 @@ namespace TheGame
                 CON = Dices.RollAbility(4).OrderByDescending(x => x).Take(3).Sum(),
                 WIS = Dices.RollAbility(4).OrderByDescending(x => x).Take(3).Sum(),
                 CHA = Dices.RollAbility(4).OrderByDescending(x => x).Take(3).Sum(),
-                Class = Class.GetRandomClass()
+                Class = Class.GetRandomClass(),
+                Level = level == 0 ? 1 : level
             };
 
             player.STRModifier = Calculator.CalculateModifier(player.STR);

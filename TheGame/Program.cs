@@ -1,5 +1,4 @@
-﻿using TheGame.Classes;
-using TheGame.Factories;
+﻿using TheGame.Factories;
 using TheGame.Items;
 
 namespace TheGame
@@ -13,21 +12,20 @@ namespace TheGame
             // Genereate dummy players
             List<Player> players = new List<Player>()
             {
-                Player.CreateRandom("Szpoti"),
-                Player.CreateRandom("Kek"),
-                Player.CreateRandom("Máté"),
-                Player.CreateRandom("Balogh"),
-                Player.CreateRandom("Zoli"),
-                Player.CreateRandom("Kasnyik"),
-                Player.CreateRandom("Gréti")
+                Player.CreateRandom("Szpoti", 5),
+                Player.CreateRandom("Kek", 5),
+                Player.CreateRandom("Máté", 5),
+                Player.CreateRandom("Balogh", 5),
+                Player.CreateRandom("Zoli", 5),
+                Player.CreateRandom("Kasnyik", 5),
+                Player.CreateRandom("Gréti", 5)
             };
 
             Logger.LogList(players);
             Logger.LogBestStats(players);
 
             // Generate dummy weapons
-            List<Weapon> weapons = WeaponFactory.GenerateWeapons();
-            WeaponFactory.ZipWeapons();
+            List<Weapon> weapons = WeaponFactory.GetWeapons();
 
             var task = Task.Run(async () =>
             {
